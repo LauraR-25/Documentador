@@ -2,6 +2,8 @@ package generator;
 
 import java.util.*;
 
+
+//  Modelo de datos para la documentación de clases, campos y métodos
 final class ClassDoc {
     final String qualifiedName;
     final String simpleName;
@@ -15,6 +17,7 @@ final class ClassDoc {
     final List<MethodDoc> constructors;
     final List<MethodDoc> methods;
 
+    //  El constructor hace defensiva copia de las listas para garantizar inmutabilidad
     ClassDoc(
             String qualifiedName,
             String simpleName,
@@ -40,12 +43,14 @@ final class ClassDoc {
     }
 }
 
+//  Modelo de datos para la documentación de campos de clase
 final class FieldDoc {
     final String name;
     final String type;
     final String modifiers;
     final String description;
 
+    //  El constructor es directo ya que todos los campos son inmutables y no hay listas
     FieldDoc(String name, String type, String modifiers, String description) {
         this.name = name;
         this.type = type;
@@ -54,6 +59,7 @@ final class FieldDoc {
     }
 }
 
+//  "" para la documentación de métodos y constructores
 final class MethodDoc {
     final String name;
     final String signature;
@@ -97,6 +103,7 @@ final class MethodDoc {
     }
 }
 
+//  "" para la documentación de parámetros de métodos
 final class ParamDoc {
     final String name;
     final String type;

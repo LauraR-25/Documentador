@@ -3,11 +3,15 @@ package generator;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+//  Renderiza la documentación de una clase en formato Markdown
 final class MarkdownRenderer {
 
+    //  Clase utilitaria con metodo estático para renderizar la documentación de una clase en Markdown
     private MarkdownRenderer() {
     }
 
+    //  Renderiza la documentación de una clase en formato Markdown, incluyendo secciones para descripción,
+    //  atributos, constructores y metodos
     static String render(ClassDoc doc) {
         StringBuilder sb = new StringBuilder();
 
@@ -79,6 +83,8 @@ final class MarkdownRenderer {
         return sb.toString();
     }
 
+    //  Renderiza la documentación de un metodo o constructor en formato Markdown, incluyendo su firma, modificadores,
+    //  tipo de retorno, descripción, parámetros y si es constructor/getter/setter/override
     private static void renderMethodLike(StringBuilder sb, MethodDoc m) {
         sb.append("### ").append(m.name).append("\n\n");
         sb.append("**Signature:** `").append(m.signature).append("`\n\n");
@@ -112,14 +118,18 @@ final class MarkdownRenderer {
         }
     }
 
+    //  Agrega una fila a una tabla Markdown, escapando caracteres especiales y manejando nulls como guiones
     private static void row(StringBuilder sb, String k, String v) {
         sb.append("|").append(escape(k)).append("|").append(escape(v)).append("|\n");
     }
 
+    //  Convierte null o strings vacíos a un guion para mejor legibilidad en la tabla Markdown
     private static String nullToDash(String s) {
         return (s == null || s.isBlank()) ? "-" : s;
     }
 
+
+    //  Escapa caracteres especiales en Markdown para evitar romper la sintaxis de tablas o líneas
     private static String escape(String s) {
         if (s == null) return "-";
         return s.replace("\r", " ")

@@ -2,7 +2,7 @@
 
 **Fully qualified name:** `example.Persona`
 
-**Generated:** 2026-03-24T01:41:17.7662578
+**Generated:** 2026-03-26T09:12:19.0297172
 
 ## Table of contents
 
@@ -31,7 +31,7 @@ Representa una persona con nombre y edad.
 
 |Name|Type|Modifiers|Description|
 |---|---|---|---|
-|`edad`|`int`|private|Edad en años|
+|`edad`|`int`|private static volatile|Edad en años|
 |`nombre`|`java.lang.String`|private|Nombre de la persona|
 
 ## Constructors

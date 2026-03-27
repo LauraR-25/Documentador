@@ -7,13 +7,15 @@ import doc.*;
         description = "Representa una persona con nombre y edad.",
         version = "1.0.0"
 )
+
+//  Ejemplo de clase con anotaciones personalizadas para documentación
 public class Persona extends BaseEntity {
 
     @DocField(description = "Nombre de la persona")
     private String nombre;
 
     @DocField(description = "Edad en años")
-    private int edad;
+    private static volatile int edad;
 
     @DocMethod(description = "Constructor por defecto")
     public Persona() {
@@ -28,6 +30,7 @@ public class Persona extends BaseEntity {
         this.edad = edad;
     }
 
+    //  Getters y setters con anotaciones para documentación
     @DocMethod(description = "Obtiene el nombre")
     public String getNombre() {
         return nombre;
@@ -49,6 +52,7 @@ public class Persona extends BaseEntity {
     }
 
     @Override
+    //  Sobrescribe el metodo describe() para proporcionar una descripción personalizada de la persona
     @DocMethod(description = "Sobreescribe describe() de BaseEntity")
     public String describe() {
         return "Persona{" + nombre + "," + edad + "}";

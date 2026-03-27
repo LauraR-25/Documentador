@@ -5,20 +5,17 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 
 public class Main {
-
-    /**
-     * Uso:
-     *   java generator.Main <fully.qualified.ClassName> [outputFile]
-     */
+    //  Uso: java generator.Main <fully.qualified.ClassName> [outputFile]
     public static void main(String[] args) {
         if (args.length < 1 || args.length > 2) {
             System.err.println("Uso: java generator.Main <fully.qualified.ClassName> [outputFile]");
             System.exit(2);
         }
-
+        //  Obtener el nombre de la clase y el archivo de salida
         String className = args[0];
         String out = args.length == 2 ? args[1] : (className.substring(className.lastIndexOf('.') + 1) + ".md");
 
+        //  Cargar la clase y generar la documentación
         try {
             Class<?> clazz = Class.forName(className);
             DocGenerator gen = new DocGenerator();
